@@ -3,7 +3,7 @@ version: '3'
 services:
 
   service.rsshub:
-    image: diygod/rsshub
+    image: wtser/rsshub
     restart: always
     ports:
       - "1200:1200"
