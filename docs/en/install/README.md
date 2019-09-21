@@ -300,7 +300,9 @@ Use environment variables is recommended to avoid conflicts during upgrade.
 
 `NODE_NAME`: node name, used for load balancing, identify current node
 
-`PUPPETEER_WS_ENDPOINT`: 用于 puppeteer.connect 的浏览器 websocket 链接，见 [browserWSEndpoint](https://zhaoqize.github.io/puppeteer-api-zh_CN/#?product=Puppeteer&version=v1.14.0&show=api-browserwsendpoint)
+`PUPPETEER_WS_ENDPOINT`: Browser websocket endpoint which can be used as an argument to puppeteer.connect, refer to [browserWSEndpoint](https://pptr.dev/#?product=Puppeteer&version=v1.14.0&show=api-browserwsendpoint)
+
+`SENTRY`: [Sentry](https://sentry.io) dsn, used for error tracking
 
 ### User Authentication
 
@@ -326,7 +328,7 @@ When adding feeds using RSS readers with HTTP Basic Authentication support, auth
 
     -   `TWITTER_CONSUMER_SECRET`: Twitter Consumer Secret, support multiple keys, split them with `,`
 
-    -   `TWITTER_TOKEN_{id}`: Twitter token corresponding id, replace `{id}` with id, the value is splitting consumer_key consumer_secret access_token access_token_secret with `,`, `{consumer_key},{consumer_secret},{access_token},{access_token_secret}`
+    -   `TWITTER_TOKEN_{id}`: Twitter token's corresponding id, replace `{id}` with the id, the value is a combination of `consumer_key consumer_secret access_token access_token_secret` by a comma `,`. Eg. `{consumer_key},{consumer_secret},{access_token},{access_token_secret}`.
 
 -   `youtube`: [API Key application](https://console.developers.google.com/)
 
@@ -342,7 +344,7 @@ When adding feeds using RSS readers with HTTP Basic Authentication support, auth
 
 -   `mail`:
 
-    -   `EMAIL_CONFIG_{email}`: Mail setting, replace `{email}` with email account, replace `@` in email account with `.`, like `EMAIL_CONFIG_xxx.qq.com`. the value format is `password=password&host=server&port=port`, like `password=123456&host=imap.qq.com&port=993`
+    -   `EMAIL_CONFIG_{email}`: Mail setting, replace `{email}` with the email account, replace `@` in email account with `.`, eg. `EMAIL_CONFIG_xxx.gmail.com`. the value is in the format of `password=password&host=server&port=port`, eg. `password=123456&host=imap.gmail.com&port=993`
 
 ### Access Control
 

@@ -1,8 +1,9 @@
 const supertest = require('supertest');
-const { server } = require('../../lib/index');
+const server = require('../../lib/index');
 const request = supertest(server);
 const Parser = require('rss-parser');
 const parser = new Parser();
+const config = require('../../lib/config').value;
 
 afterAll(() => {
     server.close();
@@ -40,7 +41,7 @@ describe('filter', () => {
     });
 
     it(`filter_time`, async () => {
-        const response = await request.get('/test/1?filter_time=25');
+        const response = await request.get('/test/current_time?filter_time=25');
         const parsed = await parser.parseString(response.text);
         expect(parsed.items.length).toBe(2);
         expect(parsed.items[0].title).toBe('Title1');
@@ -110,7 +111,7 @@ describe('empty', () => {
     it(`empty`, async () => {
         const response1 = await request.get('/test/empty');
         expect(response1.status).toBe(404);
-        expect(response1.text).toMatch(/RSSHub 发生了一些意外: <pre>Error: this route is empty/);
+        expect(response1.text).toMatch(/Error: this route is empty/);
 
         const response2 = await request.get('/test/1?limit=0');
         expect(response2.status).toBe(200);
@@ -132,7 +133,8 @@ describe('wrong_path', () => {
     it(`wrong_path`, async () => {
         const response = await request.get('/wrong');
         expect(response.status).toBe(404);
-        expect(response.text).toMatch(/RSSHub 发生了一些意外: <pre>Error: wrong path/);
+        expect(response.headers['cache-control']).toBe(`public, max-age=${config.cache.routeExpire * 100}`);
+        expect(response.text).toMatch(/Error: wrong path/);
     });
 });
 
