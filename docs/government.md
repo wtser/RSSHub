@@ -10,6 +10,34 @@ pageClass: routes
 
 <Route author="HenryQW" example="/un/scveto" path="/un/scveto"/>
 
+## 中国工业和信息化部
+
+### 政策解读
+
+<Route author="Yoge-Code" example="/gov/miit/zcjd" path="/gov/miit/zcjd"/>
+
+### 文件公示
+
+<Route author="Yoge-Code" example="/gov/miit/wjgs" path="/gov/miit/wjgs"/>
+
+### 政策文件
+
+<Route author="Yoge-Code" example="/gov/miit/zcwj" path="/gov/miit/zcwj"/>
+
+## 中国国家认证认可监管管理员会
+
+### 监管动态
+
+<Route author="Yoge-Code" example="/gov/cnca/jgdt" path="/gov/cnca/jgdt"/>
+
+### 行业动态
+
+<Route author="Yoge-Code" example="/gov/cnca/hydt" path="/gov/cnca/hydt"/>
+
+### 最新通知
+
+<Route author="Yoge-Code" example="/gov/cnca/zxtz" path="/gov/cnca/zxtz"/>
+
 ## 中国政府
 
 ### 最新政策
@@ -232,6 +260,12 @@ pageClass: routes
 | 贝尔法斯特 | `/embassy/uk/belfast`    |
 | 曼彻斯特   | `/embassy/uk/manchester` |
 
+## 中华人民共和国海关总署
+
+### 拍卖信息/海关法规
+
+<Route author="Jeason0228" example="/gov/customs/list/paimai" path="/gov/customs/list/:gchannel"  :paramsDesc="['支持paimai,fagui等2个频道']" />
+
 ## 中华人民共和国商务部
 
 ### 政务公开
@@ -246,17 +280,15 @@ pageClass: routes
 
 ## 中华人民共和国退役军人事务部
 
-### 部内信息
+### 中华人民共和国退役军人事务部
 
-<Route author="SunShinenny" example="/gov/veterans/bnxx" path="/gov/veterans/bnxx"/>
+<Route author="SunShinenny" example="/gov/veterans/bnxx" path="/gov/veterans/:type" :paramsDesc="['分类名']">
 
-### 政策解读
+| 部内信息 | 政策解读 | 首页信息 |
+| :------: | :------: | :------: |
+|   bnxx   |   zcjd   |  index   |
 
-<Route author="SunShinenny" example="/gov/veterans/zcjd" path="/gov/veterans/zcjd"/>
-
-### 首页信息
-
-<Route author="SunShinenny" example="/gov/veterans/index" path="/gov/veterans/index"/>
+</Route>
 
 ## 中华人民共和国外交部
 
